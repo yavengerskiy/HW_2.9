@@ -85,9 +85,7 @@
 				D1F1B7B7274E040300E922FD /* Controllers */,
 				D1F1B7B6274E03F200E922FD /* Views */,
 				D1F1B7B5274E03E800E922FD /* Models */,
-				D10EE0B1274DFEC500BBF2BF /* Main.storyboard */,
 				D10EE0B4274DFEC600BBF2BF /* Assets.xcassets */,
-				D10EE0B6274DFEC600BBF2BF /* LaunchScreen.storyboard */,
 				D10EE0B9274DFEC600BBF2BF /* Info.plist */,
 			);
 			path = HW_2.9;
@@ -104,6 +102,8 @@
 		D1F1B7B6274E03F200E922FD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D10EE0B1274DFEC500BBF2BF /* Main.storyboard */,
+				D10EE0B6274DFEC600BBF2BF /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -10,10 +10,6 @@ import Spring
 class ViewController: UIViewController {
 
     @IBOutlet weak var currentAnimationLabel: UILabel!
-    @IBOutlet weak var curveLabel: UILabel!
-    @IBOutlet weak var durationValueLabel: UILabel!
-    @IBOutlet weak var forceValueLabel: UILabel!
-    @IBOutlet weak var delayValueLabel: UILabel!
     
     @IBOutlet weak var nextAnimationButton: UIButton!
     @IBOutlet weak var animatedView: SpringImageView!
@@ -22,7 +18,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        animation = getNextAnimation()
+        animation = Animation.getNextAnimation()
     }
 
     @IBAction func nextAnimationButtonPressed(_ sender: UIButton) {
@@ -36,28 +32,18 @@ class ViewController: UIViewController {
         
         setLabelsValue(animation)
         
-        animation = getNextAnimation()
+        animation = Animation.getNextAnimation()
         nextAnimationButton.setTitle("Next: \(animation.animation)", for: .normal)
     }
     
     private func setLabelsValue (_ animation: Animation){
-        currentAnimationLabel.text = "present: \(animation.animation)"
-        curveLabel.text = "curve: \(animation.curve)"
-        durationValueLabel.text = "duration: \(animation.duration)"
-        forceValueLabel.text = "force: \(animation.force)"
-        delayValueLabel.text = "delay: \(animation.delay)"
+        currentAnimationLabel.text = "present: \(animation.animation)\n" +
+                                     "curve: \(animation.curve)\n" +
+                                     "duration: \(animation.duration)\n" +
+                                     "force: \(animation.force) \n" +
+                                     "delay: \(animation.delay)"
     }
     
-    private func getNextAnimation() -> Animation {
-        let animations = Spring.AnimationPreset.allCases
-        let animationCurves = Spring.AnimationCurve.allCases
-        
-        let animation = Animation(animation: animations[Int.random(in: 0..<animations.count)].rawValue,
-                                  curve: animationCurves[Int.random(in: 0..<animationCurves.count)].rawValue,
-                                  duration: CGFloat(Int.random(in: 10...100))/100,
-                                  force: CGFloat(Int.random(in: 10...100))/100,
-                                  delay: CGFloat(Int.random(in: 10...100))/100)
-        return animation
-    }
+    
 }
 
